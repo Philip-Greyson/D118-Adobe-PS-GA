@@ -101,7 +101,7 @@ with oracledb.connect(user=un, password=pw, dsn=cs) as con:
                                     # do the query of their courses for the current term, filter to match certain courses
                                     if grade in range(9,12): # if they are in high school
                                         # print(f'{idNum} is a high schooler, looking for course numbers 137, 148, 163', file=log) # debug
-                                        cur.execute("SELECT cc.schoolid, cc.course_number, cc.sectionid, cc.section_number, cc.termid, cc.expression, courses.course_name FROM cc LEFT JOIN courses ON cc.course_number = courses.course_number WHERE (cc.course_number = '163' OR cc.course_number = '148' OR cc.course_number = '137') AND cc.studentid = " + str(internalID) + " AND cc.termid = " + termid + " ORDER BY cc.course_number")
+                                        cur.execute("SELECT cc.schoolid, cc.course_number, cc.sectionid, cc.section_number, cc.termid, cc.expression, courses.course_name FROM cc LEFT JOIN courses ON cc.course_number = courses.course_number WHERE (cc.course_number = '163' OR cc.course_number = '148' OR cc.course_number = '137' OR cc.course_number = '985') AND cc.studentid = " + str(internalID) + " AND cc.termid = " + termid + " ORDER BY cc.course_number")
                                     elif grade in range (6,8): # if they are in middle school, search for an ART in the course number
                                         # print(f'{idNum} is a middle schooler, looking for an ART class', file=log) # debug
                                         cur.execute("SELECT cc.schoolid, cc.course_number, cc.sectionid, cc.section_number, cc.termid, cc.expression, courses.course_name FROM cc LEFT JOIN courses ON cc.course_number = courses.course_number WHERE (instr(cc.course_number, 'ART') > 0) AND cc.studentid = " + str(internalID) + " AND cc.termid = " + termid + " ORDER BY cc.course_number")
@@ -112,8 +112,9 @@ with oracledb.connect(user=un, password=pw, dsn=cs) as con:
                                         for entry in userClasses: # go through each class that matches
                                             # print(entry)
                                             className = entry[6]
+                                            courseNumber = entry[1]
                                             # print(entry, file=log) # debug
-                                            print(f'INFO: Student {idNum} is enrolled in "{className}" at building {schoolID} for the current term {termid}', file=log)
+                                            print(f'INFO: Student {idNum} is enrolled in course number {courseNumber} named "{className}" at building {schoolID} for the current term {termid}', file=log)
 
                                             # next do a query in Google Admin for the students account based on their email
                                             queryString = 'email=' + email # construct the query string which looks for the email
