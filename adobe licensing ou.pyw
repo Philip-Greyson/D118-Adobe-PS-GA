@@ -109,7 +109,7 @@ if __name__ == '__main__':  # main file execution
                         grade = int(student[5])  # grade level
                         email = idNum + "@d118.org"
                         # print(f'Student {idNum} in grade {grade} at building {schoolID}', file=log) # debug
-                        if (status == '0' and schoolID != 901 and (grade in range(6,12))):  # only active students in 6-12 not in pre-registered will get processed, otherwise just skipped
+                        if (status == '0' and schoolID != 901 and (grade in range(GROUP1_GRADE_MINIMUM,GROUP2_GRADE_MAXIMUM+1))):  # only active students in 6-12 not in pre-registered will get processed, otherwise just skipped
                             #do another query to get their terms to find the current term
                             try:
                                  # get a list of terms for the school so we can find courses for those terms, filtering to not full years. Use bind variables. https://python-oracledb.readthedocs.io/en/latest/user_guide/bind.html#bind
