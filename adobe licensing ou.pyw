@@ -43,7 +43,7 @@ GROUP1_GRADE_MAXIMUM = 8
 GROUP1_CLASSES = ['EX6ART', 'EX7ART', 'EX8ART']  # list of course numbers to search for, must match exactly
 GROUP2_GRADE_MINIMUM = 9
 GROUP2_GRADE_MAXIMUM = 12
-GROUP2_CLASSES = ['163', '148', '137', '985', '164']  # list of course numbers to search for, must match exactly
+GROUP2_CLASSES = ['163', '148', '137', '985', '164', '55201']  # list of course numbers to search for, must match exactly
 
 # Google API Scopes that will be used. If modifying these scopes, delete the file token.json.
 SCOPES = ['https://www.googleapis.com/auth/admin.directory.user', 'https://www.googleapis.com/auth/admin.directory.group', 'https://www.googleapis.com/auth/admin.directory.group.member', 'https://www.googleapis.com/auth/admin.directory.orgunit', 'https://www.googleapis.com/auth/admin.directory.userschema']
